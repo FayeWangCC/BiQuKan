@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="307cc5a5-749c-4eef-970f-23c4287f78ff" name="Changes" comment="py文件重命名(lll￢ω￢)">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="307cc5a5-749c-4eef-970f-23c4287f78ff" name="Changes" comment="None">
+      <change beforePath="$PROJECT_DIR$/book_v1/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/book_v1/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +21,12 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
@@ -178,7 +183,7 @@
       <workItem from="1653642849180" duration="114000" />
       <workItem from="1653643006968" duration="152000" />
       <workItem from="1653643175702" duration="74000" />
-      <workItem from="1653643929585" duration="1790000" />
+      <workItem from="1653643929585" duration="1907000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1653564478959</created>
@@ -208,7 +213,21 @@
       <option name="project" value="LOCAL" />
       <updated>1653645216568</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="None">
+      <created>1653645784142</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1653645784142</updated>
+    </task>
+    <task id="LOCAL-00006" summary="None">
+      <created>1653645817738</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1653645817738</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -230,7 +249,8 @@
     <MESSAGE value="update" />
     <MESSAGE value="book_v1的在爬取章节较多的小说时容易出现:&#10;1.获取到的书籍页面url不完整,导致缺失章节&#10;2.在代码执行过程中一旦某个页面的请求失败会导致整个函数重新执行,对于篇幅较多的文章,极端情况下一辈子也怕不下来&#10;3.爬取速度慢...整个过程简单来说就是一步一个脚印的执行,非常的踏实[:(lll￢ω￢)]" />
     <MESSAGE value="py文件重命名(lll￢ω￢)" />
-    <option name="LAST_COMMIT_MESSAGE" value="py文件重命名(lll￢ω￢)" />
+    <MESSAGE value="None" />
+    <option name="LAST_COMMIT_MESSAGE" value="None" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/BiQuKan$book.coverage" NAME="book 覆盖结果" MODIFIED="1653638736112" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />

@@ -2,13 +2,13 @@
 # 笔趣看网址:https://www.biqukan.la/
 # 示例小说网址:https://www.biqukan.la/book/74444/
 # 创建Book类
-import time
 import random
+import time
+
 import pymysql
 import requests
 from lxml import etree
 from retrying import retry
-from pymysql.converters import escape_string
 
 
 class Book(object):
