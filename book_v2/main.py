@@ -54,7 +54,7 @@ class Book(object):
 		# 调用格式化函数,将简介内容格式化
 		book_describe = self.format_string(dom.xpath('//p[@id="bookIntro"]/text()'))
 		# 设置保存路径
-		save_path = f'./小说/{book_name}_{time.strftime("%Y-%m-%d", time.localtime())}/'
+		save_path = f'./小说/{book_name}/'
 		# 判断目录是否存在
 		if os.path.exists(save_path):
 			# 存在就直接保存
@@ -119,7 +119,7 @@ class Book(object):
 			dom = etree.HTML(section_text)
 			el_content = dom.xpath('//div[@id="htmlContent"]/text()')
 			book_name = str(dom.xpath('/html/body/div[2]/ol/li[3]/a/text()')[0]).strip()
-			section_title = str(dom.xpath('//h1[@class="readTitle"]/text()')[0]).strip()
+			section_title = str(dom.xpath('//h1[@class="readTitle"]/text()')[0]).strip().replace("*", "")
 			content = content + str(book.format_string(el_content)) + '\n'
 			next_url = str(dom.xpath('//a[@id="linkIndex"]/@href')[0]) + str(
 				dom.xpath('//a[@id="linkNext"]/@href')[0])
@@ -129,7 +129,7 @@ class Book(object):
 			else:
 				break
 		# 设置保存路径
-		save_path = f'./小说/{book_name}_{time.strftime("%Y-%m-%d", time.localtime())}/'
+		save_path = f'./小说/{book_name}/'
 		# 判断目录是否存在
 		if os.path.exists(save_path):
 			# 存在就直接保存
@@ -140,20 +140,24 @@ class Book(object):
 			os.makedirs(save_path)
 			with open(f'{save_path}{section_title}.txt', 'w') as f:
 				f.write(f'{section_title}\n{content}')
+			print(f'下载完成\t\t{section_title}')
+
+	def run(self):
+		book_text = book.get_data(url=start_url)
+		# 创建并启动子进程:解析书籍内容并保存
+		book_data_process = multiprocessing.Process(target=book.parse_book_data, kwargs={'book_text': book_text})
+		book_data_process.start()
+		page_url_list = book.get_page_data(book_text=book_text)
+		page_text_list = book.get_data(url_list=page_url_list)
+		for page_text in page_text_list:
+			book.parse_section_data(page_text=page_text)
 
 
 headers = {
 	'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.62 Safari/537.36'
 }
+
 if __name__ == '__main__':
 	start_url = input('请输入书籍章节目录页面url:')
 	book = Book()
-	book_text = book.get_data(url=start_url)
-	# 创建并启动子进程:解析书籍内容并保存
-	book_data_process = multiprocessing.Process(target=book.parse_book_data, kwargs={'book_text': book_text})
-	book_data_process.start()
-	page_url_list = book.get_page_data(book_text=book_text)
-	page_text_list = book.get_data(url_list=page_url_list)
-	for page_text in page_text_list:
-		book.parse_section_data(page_text=page_text)
-	print('--------------下载完成--------------')
+	book.run()
